@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Sparkles, Loader2, Heart, Download, Sun, Moon,
+  Sparkles, Loader2, Heart, Download,
   RefreshCw, Trash2, Search, Instagram, Youtube, Video, Twitter,
   Brain, Star, Copy, Check, Zap
 } from 'lucide-react';
@@ -25,20 +25,12 @@ function App() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [scanProgress, setScanProgress] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
 
-  // Theme Sync
+  // Force Dark Mode on mount
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }, []);
 
   // Favorites Sync
   useEffect(() => {
@@ -210,7 +202,7 @@ function App() {
       <aside className="sidebar">
         <div className="logo-container">
           <img
-            src={isDarkMode ? "/logo-dark.png" : "/logo-light.png"}
+            src="/logo-dark.png"
             alt="URL FREE AI Logo"
             className="logo-img"
           />
@@ -294,12 +286,9 @@ function App() {
           </form>
         </div>
 
-        {/* User Footer */}
+        {/* Footer info */}
         <div className="mt-auto pt-8 border-t border-slate-100 dark:border-slate-800 flex items-center justify-center">
-          <button onClick={() => setIsDarkMode(!isDarkMode)} className="flex items-center gap-2 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors w-full justify-center">
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            <span className="text-sm font-bold uppercase tracking-widest">{isDarkMode ? t('sidebar.lightMode') : t('sidebar.darkMode')}</span>
-          </button>
+          <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">URL FREE AI © 2026</span>
         </div>
       </aside>
 

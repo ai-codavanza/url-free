@@ -1,20 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --bg-main: #f8fafc;
-  --sidebar-bg: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(226, 232, 240, 0.8);
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --sidebar-width: 450px;
-  --label-margin: 12px;
-}
-
-.dark {
   --primary: #3b82f6;
   --primary-hover: #60a5fa;
   --bg-main: #020617;
@@ -24,6 +10,8 @@
   --glass-bg: rgba(15, 23, 42, 0.5);
   --glass-border: rgba(30, 41, 59, 0.7);
   --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  --sidebar-width: 450px;
+  --label-margin: 12px;
 }
 
 * {
@@ -220,87 +208,47 @@ body {
 }
 
 .badge-available {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.badge-taken {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.badge-premium {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.dark .badge-available {
   background: rgba(22, 101, 52, 0.2);
   color: #4ade80;
 }
 
-.dark .badge-taken {
+.badge-taken {
   background: rgba(153, 27, 27, 0.2);
   color: #f87171;
 }
 
-.dark .badge-premium {
+.badge-premium {
   background: rgba(146, 64, 14, 0.2);
   color: #fbbf24;
 }
 
 /* Archetype Colors */
 .arch-hero {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.2);
   color: #ef4444;
 }
 
 .arch-magician {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(139, 92, 246, 0.2);
   color: #8b5cf6;
 }
 
 .arch-sage {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.2);
   color: #3b82f6;
 }
 
 .arch-creator {
-  background: rgba(236, 72, 153, 0.1);
+  background: rgba(236, 72, 153, 0.2);
   color: #ec4899;
 }
 
 .arch-explorer {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(245, 158, 11, 0.2);
   color: #f59e0b;
 }
 
 .arch-ruler {
-  background: rgba(30, 41, 59, 0.1);
-  color: #1e293b;
-}
-
-.dark .arch-hero {
-  background: rgba(239, 68, 68, 0.2);
-}
-
-.dark .arch-magician {
-  background: rgba(139, 92, 246, 0.2);
-}
-
-.dark .arch-sage {
-  background: rgba(59, 130, 246, 0.2);
-}
-
-.dark .arch-creator {
-  background: rgba(236, 72, 153, 0.2);
-}
-
-.dark .arch-explorer {
-  background: rgba(245, 158, 11, 0.2);
-}
-
-.dark .arch-ruler {
   background: rgba(241, 245, 249, 0.1);
   color: #f1f5f9;
 }
