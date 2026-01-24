@@ -1,0 +1,55 @@
+{
+    "sidebar": {
+        "title": "Describe Your Vision",
+        "subtitle": "Tell us what your business does and our AI will do the rest.",
+        "descriptionLabel": "Business Description",
+        "languageLabel": "Language",
+        "descriptionPlaceholder": "e.g. A high-end sustainable coffee brand...",
+        "styleLabel": "Naming Style",
+        "styles": {
+            "Moderno": "Modern",
+            "Clásico": "Classic",
+            "Abstracto": "Abstract",
+            "Minimalista": "Minimalist"
+        },
+        "generateBtn": "Generate Names",
+        "generating": "Generating...",
+        "clearBtn": "Clear All",
+        "lightMode": "Light Mode",
+        "darkMode": "Dark Mode"
+    },
+    "main": {
+        "title": "Suggested Names",
+        "resultsSuffix": "results",
+        "exportCsv": "Export CSV",
+        "scanning": "Scanning ecosystem...",
+        "errorGeneration": "Generation error. Please retry.",
+        "emptyState": "Describe your vision to begin",
+        "loadMore": "Generate more names",
+        "loadingMore": "Discovering more...",
+        "favorites": "Your Saved Names"
+    },
+    "card": {
+        "available": "Available",
+        "taken": "Taken",
+        "checking": "Checking...",
+        "buyBtn": "Buy .com",
+        "retryBtn": "Retry",
+        "memorability": "Memorability",
+        "archetype": "Archetype"
+    },
+    "archetypes": {
+        "Hero": "Hero",
+        "Magician": "Magician",
+        "Sage": "Sage",
+        "Creator": "Creator",
+        "Explorer": "Explorer",
+        "Ruler": "Ruler",
+        "Innocent": "Innocent",
+        "Rebel": "Rebel",
+        "Jester": "Jester",
+        "Everyman": "Everyman",
+        "Lover": "Lover",
+        "Caregiver": "Caregiver"
+    }
+}

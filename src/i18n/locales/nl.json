@@ -1,0 +1,55 @@
+{
+    "sidebar": {
+        "title": "Beschrijf je Visie",
+        "subtitle": "Vertel ons wat je bedrijf doet en onze AI doet de rest.",
+        "descriptionLabel": "Bedrijfsomschrijving",
+        "languageLabel": "Taal",
+        "descriptionPlaceholder": "bijv. Een hoogwaardig duurzaam koffiemerk...",
+        "styleLabel": "Naamstijl",
+        "styles": {
+            "Moderno": "Modern",
+            "Clásico": "Klassiek",
+            "Abstracto": "Abstract",
+            "Minimalista": "Minimalistisch"
+        },
+        "generateBtn": "Namen Genereren",
+        "generating": "Genereren...",
+        "clearBtn": "Alles Wissen",
+        "lightMode": "Lichte Modus",
+        "darkMode": "Donkere Modus"
+    },
+    "main": {
+        "title": "Voorgestelde Namen",
+        "resultsSuffix": "resultaten",
+        "exportCsv": "CSV Exporteren",
+        "scanning": "Ecosysteem scannen...",
+        "errorGeneration": "Fout bij genereren. Probeer het opnieuw.",
+        "emptyState": "Beschrijf je visie om te beginnen",
+        "loadMore": "Meer namen genereren",
+        "loadingMore": "Meer ontdekken...",
+        "favorites": "Je Opgeslagen Namen"
+    },
+    "card": {
+        "available": "Beschikbaar",
+        "taken": "Bezet",
+        "checking": "Controleren...",
+        "buyBtn": "Koop .com",
+        "retryBtn": "Opnieuw proberen",
+        "memorability": "Herkenbaarheid",
+        "archetype": "Archetype"
+    },
+    "archetypes": {
+        "Hero": "Held",
+        "Magician": "Magier",
+        "Sage": "Wijze",
+        "Creator": "Schepper",
+        "Explorer": "Ontdekkingsreiziger",
+        "Ruler": "Heerser",
+        "Innocent": "Onschuldige",
+        "Rebel": "Rebel",
+        "Jester": "Nar",
+        "Everyman": "Gewone Man",
+        "Lover": "Minnaar",
+        "Caregiver": "Verzorger"
+    }
+}

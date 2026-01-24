@@ -1,0 +1,55 @@
+{
+    "sidebar": {
+        "title": "Describe tu Visión",
+        "subtitle": "Cuéntanos qué hace tu negocio y nuestra IA hará el resto.",
+        "descriptionLabel": "Descripción del Negocio",
+        "languageLabel": "Idioma",
+        "descriptionPlaceholder": "Ej: Una marca de café sostenible de alta gama...",
+        "styleLabel": "Estilo de Nombre",
+        "styles": {
+            "Moderno": "Moderno",
+            "Clásico": "Clásico",
+            "Abstracto": "Abstracto",
+            "Minimalista": "Minimalista"
+        },
+        "generateBtn": "Generar Nombres",
+        "generating": "Generando...",
+        "clearBtn": "Limpiar Todo",
+        "lightMode": "Modo Claro",
+        "darkMode": "Modo Oscuro"
+    },
+    "main": {
+        "title": "Nombres Sugeridos",
+        "resultsSuffix": "resultados",
+        "exportCsv": "Exportar CSV",
+        "scanning": "Escaneando ecosistema...",
+        "errorGeneration": "Error en la generación. Reintenta.",
+        "emptyState": "Describe tu visión para comenzar",
+        "loadMore": "Generar más nombres",
+        "loadingMore": "Descubriendo más...",
+        "favorites": "Tus Guardados"
+    },
+    "card": {
+        "available": "Disponible",
+        "taken": "Ocupado",
+        "checking": "Comprobando...",
+        "buyBtn": "Comprar .com",
+        "retryBtn": "Reintentar",
+        "memorability": "Memorabilidad",
+        "archetype": "Arquetipo"
+    },
+    "archetypes": {
+        "Hero": "Héroe",
+        "Magician": "Mago",
+        "Sage": "Sabio",
+        "Creator": "Creador",
+        "Explorer": "Explorador",
+        "Ruler": "Gobernante",
+        "Innocent": "Inocente",
+        "Rebel": "Rebelde",
+        "Jester": "Bufón",
+        "Everyman": "Ciudadano",
+        "Lover": "Amante",
+        "Caregiver": "Cuidador"
+    }
+}
