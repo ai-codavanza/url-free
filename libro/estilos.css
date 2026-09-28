@@ -1,0 +1,140 @@
+@import url("fonts/fonts.css");
+
+:root {
+  --verde: #2f6b3a;
+  --verde-claro: #e3f0dc;
+  --naranja: #e0702a;
+  --naranja-claro: #fde9d9;
+  --azul: #2d7fb8;
+  --azul-claro: #dcecf7;
+  --amarillo: #f4c542;
+  --amarillo-claro: #fdf4d3;
+  --rojo: #c8412f;
+  --rojo-claro: #fbe1dc;
+  --cafe: #7a5230;
+  --tinta: #26302a;
+  --gris: #6b736d;
+  --linea: #c9cfc9;
+}
+
+* { box-sizing: border-box; }
+@page { size: 8.5in 11in; margin: 0; }
+html, body { margin: 0; padding: 0; background: #fff; color: var(--tinta); }
+body { font-family: "Nunito", sans-serif; font-size: 12pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page {
+  width: 8.5in; height: 11in;
+  padding: 0.6in 0.65in 0.75in;
+  position: relative; overflow: hidden;
+  page-break-after: always; break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+.folio {
+  position: absolute; bottom: 0.32in; left: 0; right: 0;
+  text-align: center; font-family: "Fredoka"; font-size: 10pt; color: var(--gris);
+}
+.folio span { display: inline-block; min-width: 0.36in; padding: 2px 8px; border-radius: 20px; background: var(--verde-claro); color: var(--verde); font-weight: 600; }
+
+h1, h2, h3, h4 { font-family: "Fredoka", sans-serif; margin: 0 0 0.12in; line-height: 1.15; color: var(--verde); }
+h1 { font-size: 30pt; font-weight: 700; }
+h2 { font-size: 21pt; font-weight: 700; }
+h3 { font-size: 14.5pt; font-weight: 600; }
+h4 { font-size: 12pt; font-weight: 600; }
+p { margin: 0 0 0.1in; }
+ul, ol { margin: 0 0 0.1in; padding-left: 0.26in; }
+li { margin-bottom: 0.03in; }
+strong { font-weight: 800; }
+.mano { font-family: "Patrick Hand", cursive; }
+
+.chip {
+  display: inline-block; font-family: "Fredoka"; font-weight: 600; font-size: 9.5pt;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 20px; background: var(--verde-claro); color: var(--verde);
+  margin-bottom: 0.1in;
+}
+.c-azul { --c: var(--azul); --cc: var(--azul-claro); }
+.c-naranja { --c: var(--naranja); --cc: var(--naranja-claro); }
+.c-verde { --c: var(--verde); --cc: var(--verde-claro); }
+.c-cafe { --c: var(--cafe); --cc: #f1e6da; }
+.c-amarillo { --c: #b8860b; --cc: var(--amarillo-claro); }
+.c-rojo { --c: var(--rojo); --cc: var(--rojo-claro); }
+.c-morado { --c: #6d4c9f; --cc: #ece4f6; }
+.page[class*="c-"] h2, .page[class*="c-"] h3 { color: var(--c); }
+.page[class*="c-"] .chip { background: var(--cc); color: var(--c); }
+
+/* Cajas */
+.box { border-radius: 14px; padding: 0.13in 0.18in; margin: 0.1in 0 0.14in; }
+.box h4 { margin-bottom: 0.05in; }
+.box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+.box.ciencia { background: var(--azul-claro); border-left: 6px solid var(--azul); }
+.box.ciencia h4 { color: var(--azul); }
+.box.seguridad { background: var(--rojo-claro); border-left: 6px solid var(--rojo); }
+.box.seguridad h4 { color: var(--rojo); }
+.box.sabias { background: var(--amarillo-claro); border-left: 6px solid var(--amarillo); }
+.box.sabias h4 { color: #9a6f00; }
+.box.reto { background: var(--verde-claro); border-left: 6px solid var(--verde); }
+.box.reto h4 { color: var(--verde); }
+.box.mito { background: #ece4f6; border-left: 6px solid #6d4c9f; }
+.box.mito h4 { color: #6d4c9f; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25in; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.18in; }
+.cols-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.14in; }
+.center { text-align: center; }
+.small { font-size: 10pt; }
+.tiny { font-size: 8.5pt; }
+.fig { text-align: center; margin: 0.06in 0 0.1in; }
+.fig svg { max-width: 100%; height: auto; }
+.cap { font-size: 9.5pt; color: var(--gris); text-align: center; font-style: italic; margin-top: 2px; }
+
+/* Líneas para escribir */
+.lineas { margin: 0.05in 0 0.1in; }
+.lineas div { border-bottom: 1.5px dashed var(--linea); height: 0.34in; }
+
+/* Experimento */
+.exp-head { display: flex; align-items: center; gap: 0.15in; margin-bottom: 0.08in; }
+.exp-badge { flex: none; width: 0.75in; height: 0.75in; border-radius: 50%; background: var(--c, var(--azul)); color: #fff; display: flex; align-items: center; justify-content: center; font-family: "Fredoka"; font-weight: 700; font-size: 9pt; text-align: center; line-height: 1.05; }
+.meta { display: flex; gap: 0.1in; flex-wrap: wrap; margin-bottom: 0.08in; }
+.meta span { font-size: 9.5pt; background: #f3f5f2; border-radius: 20px; padding: 2px 10px; }
+.materiales { background: #f7f8f5; border: 1.5px dashed var(--linea); border-radius: 12px; padding: 0.1in 0.16in; }
+.materiales h4 { color: var(--tinta); }
+.materiales ul { list-style: none; padding-left: 0; columns: 2; column-gap: 0.2in; margin: 0; }
+.materiales li::before { content: "☐ "; color: var(--c, var(--verde)); font-weight: 800; }
+ol.pasos { list-style: none; padding-left: 0; counter-reset: paso; }
+ol.pasos li { counter-increment: paso; position: relative; padding-left: 0.38in; margin-bottom: 0.07in; min-height: 0.26in; }
+ol.pasos li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 0.26in; height: 0.26in; border-radius: 50%; background: var(--c, var(--verde)); color: #fff; font-family: "Fredoka"; font-weight: 700; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+
+/* Apertura de capítulo */
+.opener { padding: 0; }
+.opener .banda { height: 5.2in; background: var(--c); color: #fff; position: relative; padding: 0.7in 0.7in 0; overflow: hidden; }
+.opener .num { font-family: "Fredoka"; font-weight: 600; font-size: 15pt; opacity: 0.9; letter-spacing: 0.1em; text-transform: uppercase; }
+.opener h1 { color: #fff; font-size: 44pt; margin: 0.05in 0 0.1in; }
+.opener .sub { font-size: 14pt; max-width: 4.4in; opacity: 0.95; }
+.opener .ilus { position: absolute; right: 0; bottom: 0; }
+.opener .cuerpo { padding: 0.45in 0.7in 0; }
+.opener .aprenderas li { font-size: 12.5pt; margin-bottom: 0.06in; }
+
+/* Tablas */
+table { border-collapse: collapse; width: 100%; font-size: 10.5pt; }
+th, td { border: 1.5px solid var(--linea); padding: 5px 8px; text-align: left; vertical-align: top; }
+th { background: var(--cc, var(--verde-claro)); color: var(--c, var(--verde)); font-family: "Fredoka"; font-weight: 600; }
+
+/* Actividades */
+.grid-sopa { border-collapse: collapse; margin: 0 auto; }
+.grid-sopa td { width: 0.36in; height: 0.36in; text-align: center; vertical-align: middle; font-family: "Fredoka"; font-weight: 600; font-size: 13.5pt; border: 1px solid #dfe3de; padding: 0; }
+.cruci { border-collapse: collapse; margin: 0 auto; table-layout: fixed; }
+.cruci td { width: 0.34in; min-width: 0.34in; height: 0.34in; padding: 0; border: none; position: relative; }
+.cruci td.l { border: 1.5px solid var(--tinta); background: #fff; }
+.cruci td .n { position: absolute; top: 0; left: 2px; font-size: 6.5pt; font-weight: 800; line-height: 1; }
+.cruci td .s { display: block; text-align: center; font-family: "Fredoka"; font-weight: 600; font-size: 11pt; line-height: 0.34in; color: var(--verde); }
+.check li { list-style: none; margin-bottom: 0.07in; }
+.check { padding-left: 0; }
+.check li::before { content: ""; display: inline-block; width: 0.18in; height: 0.18in; border: 2px solid var(--verde); border-radius: 4px; margin-right: 0.1in; vertical-align: -3px; }
+.marco { border: 2.5px dashed var(--linea); border-radius: 14px; }
+.opcion { display: inline-block; margin-right: 0.18in; }
+.vf { display: inline-block; font-family: "Fredoka"; font-weight: 600; border: 1.5px solid var(--linea); border-radius: 6px; padding: 0 6px; margin-left: 4px; font-size: 9.5pt; }
+.grid-sopa.mini { width: auto; }
+.grid-sopa.mini td { width: 0.27in; height: 0.27in; font-size: 10.5pt; }
+.cruci.mini td { width: 0.27in; min-width: 0.27in; height: 0.27in; }
+.cruci.mini td .s { line-height: 0.27in; font-size: 9.5pt; }
