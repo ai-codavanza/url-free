@@ -59,6 +59,7 @@ strong { font-weight: 800; }
 .c-cafe { --c: var(--cafe); --cc: #f1e6da; }
 .c-amarillo { --c: #b8860b; --cc: var(--amarillo-claro); }
 .c-rojo { --c: var(--rojo); --cc: var(--rojo-claro); }
+.c-turquesa { --c: #138a8a; --cc: #d7f0ef; }
 .c-morado { --c: #6d4c9f; --cc: #ece4f6; }
 .page[class*="c-"] h2, .page[class*="c-"] h3 { color: var(--c); }
 .page[class*="c-"] .chip { background: var(--cc); color: var(--c); }
@@ -135,6 +136,6 @@ th { background: var(--cc, var(--verde-claro)); color: var(--c, var(--verde)); f
 .opcion { display: inline-block; margin-right: 0.18in; }
 .vf { display: inline-block; font-family: "Fredoka"; font-weight: 600; border: 1.5px solid var(--linea); border-radius: 6px; padding: 0 6px; margin-left: 4px; font-size: 9.5pt; }
 .grid-sopa.mini { width: auto; }
-.grid-sopa.mini td { width: 0.27in; height: 0.27in; font-size: 10.5pt; }
+.grid-sopa.mini td { width: 0.25in; height: 0.25in; font-size: 10pt; }
 .cruci.mini td { width: 0.27in; min-width: 0.27in; height: 0.27in; }
 .cruci.mini td .s { line-height: 0.27in; font-size: 9.5pt; }

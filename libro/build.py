@@ -82,10 +82,11 @@ def experimento(titulo, color, tiempo, dificultad, materiales, pasos, ciencia_tx
 pagina(f'''
 <div style="position:absolute;inset:0;background:linear-gradient(#bfe3f5,#e4f3fa)"></div><div style="position:absolute;left:0;right:0;bottom:0">{I.portada_escena()}</div>
 <div style="position:absolute;top:0.7in;left:0.6in;right:0.6in;text-align:center">
-  <div style="display:inline-block;background:#fff;color:#2f6b3a;font-family:Fredoka;font-weight:600;border-radius:30px;padding:6px 20px;font-size:13pt;letter-spacing:.06em">LIBRO DE ACTIVIDADES · 8 A 12 AÑOS</div>
+  <div style="display:inline-block;background:#fff;color:#2f6b3a;font-family:Fredoka;font-weight:600;border-radius:30px;padding:6px 20px;font-size:12pt;letter-spacing:.06em">SERIE PEQUEÑOS EXPLORADORES · LIBRO 1</div>
   <h1 style="font-size:52pt;color:#1f4d29;margin:0.2in 0 0.05in;text-shadow:0 3px 0 #fff">¡Sobrevive en<br>el Bosque!</h1>
   <div style="font-family:Fredoka;font-weight:600;font-size:19pt;color:#e0702a;background:rgba(255,255,255,.85);display:inline-block;padding:4px 18px;border-radius:12px">Ciencia y supervivencia en la naturaleza</div>
   <div style="margin-top:0.18in"><div style="display:inline-block;background:#fff;border-radius:16px;padding:8px 20px;font-family:Fredoka;font-size:12.5pt;color:#26302a">🧭 Orientación · 💧 Agua · 🔥 Fuego · ⛺ Refugio · 🪢 Nudos · 🌿 Plantas · ☁️ Señales</div></div>
+  <div style="margin-top:0.12in;font-family:Fredoka;font-weight:600;color:#26302a;font-size:11pt">LIBRO DE ACTIVIDADES · 8 A 12 AÑOS</div>
 </div>
 ''', "", folio=False)
 
@@ -864,14 +865,21 @@ pagina(f'''
 ''', folio=False)
 
 # ─────────────────────────── CONTRAPORTADA ───────────────────────────
+from comun import SERIE, LIBROS_SERIE
+SERIE_HTML = "".join(
+    f'<div style="flex:1;background:{"#fff" if n == 1 else "rgba(255,255,255,.14)"};color:{"#26302a" if n == 1 else "#fff"};border-radius:12px;padding:8px 10px;font-size:9.5pt">'
+    f'<div style="font-size:20px">{e}</div><strong style="font-family:Fredoka;font-size:10.5pt">Libro {n}: {t}</strong><br>{d}</div>'
+    for n, t, d, e in LIBROS_SERIE)
 pagina(f'''
 <div style="position:absolute;inset:0;background:#2f6b3a"></div>
-<div style="position:absolute;left:0;right:0;bottom:0;height:4.2in;overflow:hidden">{I.portada_escena()}</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:3.6in;overflow:hidden">{I.portada_escena()}</div>
 <div style="position:relative;color:#fff;padding:0.3in 0.3in 0">
 <h1 style="color:#fff;font-size:32pt">¿Podrías sobrevivir en el bosque?</h1>
 <p style="font-size:13.5pt;max-width:6in">Encontrar el norte con una sombra. Sacar agua de las hojas de un árbol. Entender por qué el fuego necesita oxígeno. Construir un refugio que guarde el calor. Leer las nubes y las huellas de los animales.</p>
 <p style="font-size:13.5pt;max-width:6in">Este libro convierte la supervivencia en <strong>ciencia divertida</strong>: más de 10 experimentos y retos, explicaciones sencillas, pasatiempos, un diario de campo y un certificado para el explorador que lo complete todo.</p>
 <p style="font-family:Fredoka;font-size:14pt;background:rgba(255,255,255,.15);display:inline-block;padding:6px 16px;border-radius:12px">🔬 Ciencia real &nbsp;·&nbsp; 🧭 Aventura &nbsp;·&nbsp; ⚠️ Seguridad primero &nbsp;·&nbsp; 👨‍👩‍👧 En familia</p>
+<h3 style="color:#fff;margin-top:0.12in">Colecciona la {SERIE}:</h3>
+<div style="display:flex;gap:0.12in">{SERIE_HTML}</div>
 </div>
 ''', folio=False)
 

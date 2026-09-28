@@ -504,3 +504,231 @@ def para_colorear(svg_txt):
     out = out.replace('<rect width="816" height="620" fill="#fff" stroke="#26302a" stroke-width="2.5"/>', '')
     out = out.replace('preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;height:100%"', 'style="display:block;width:100%;height:auto"')
     return out
+
+
+# ═══════════════════ Libro 2: Selva ═══════════════════
+
+def palmera(x, y, h, color=VERDE2, tronco="#9b6b3d"):
+    import math
+    w = h * 0.045
+    tx, ty = x + h * 0.05, y - h
+    # tronco relleno (para que la versión de colorear quede en contorno)
+    b = (f'<path d="M{x - w * 1.3:.1f},{y} Q{x + h * 0.12 - w:.1f},{y - h * 0.5:.1f} {tx - w * 0.7:.1f},{ty:.1f} '
+         f'L{tx + w * 0.7:.1f},{ty:.1f} Q{x + h * 0.12 + w:.1f},{y - h * 0.5:.1f} {x + w * 1.3:.1f},{y}z" fill="{tronco}"/>')
+    for ang, L in [(-160, 0.5), (-125, 0.55), (-60, 0.55), (-20, 0.5), (-90, 0.4), (170, 0.45), (10, 0.45)]:
+        a = math.radians(ang)
+        ex, ey = tx + math.cos(a) * h * L, ty + math.sin(a) * h * L
+        mx, my = tx + math.cos(a) * h * L * 0.5, ty + math.sin(a) * h * L * 0.5 - h * 0.1
+        nx, ny = -math.sin(a) * h * 0.06, math.cos(a) * h * 0.06
+        b += (f'<path d="M{tx:.1f},{ty:.1f} Q{mx + nx:.1f},{my + ny:.1f} {ex:.1f},{ey:.1f} '
+              f'Q{mx - nx:.1f},{my - ny:.1f} {tx:.1f},{ty:.1f}z" fill="{color}"/>')
+    b += f'<circle cx="{tx - 4:.1f}" cy="{ty + 8:.1f}" r="{h * 0.035:.1f}" fill="#7a5230"/><circle cx="{tx + 6:.1f}" cy="{ty + 10:.1f}" r="{h * 0.035:.1f}" fill="#7a5230"/>'
+    return b
+
+
+def arbol_selva(x, y, h, color="#2e7d4f"):
+    b = f'<path d="M{x - h * 0.06},{y} L{x - h * 0.04},{y - h * 0.7} L{x + h * 0.04},{y - h * 0.7} L{x + h * 0.06},{y}z" fill="#6b4a2b"/>'
+    b += f'<path d="M{x - h * 0.06},{y} q-{h * 0.12},0 -{h * 0.16},-{h * 0.02} L{x - h * 0.05},{y - h * 0.15}z" fill="#6b4a2b"/>'
+    b += f'<path d="M{x + h * 0.06},{y} q{h * 0.12},0 {h * 0.16},-{h * 0.02} L{x + h * 0.05},{y - h * 0.15}z" fill="#6b4a2b"/>'
+    for dx, dy, r in [(0, -0.82, 0.2), (-0.2, -0.72, 0.16), (0.2, -0.72, 0.16), (-0.1, -0.95, 0.14), (0.12, -0.93, 0.14)]:
+        b += f'<circle cx="{x + dx * h:.1f}" cy="{y + dy * h:.1f}" r="{r * h:.1f}" fill="{color}"/>'
+    return b
+
+
+def loro(x, y, s=1.0):
+    return (f'<g transform="translate({x},{y}) scale({s})">'
+            f'<ellipse cx="0" cy="0" rx="16" ry="26" fill="{ROJO}"/>'
+            f'<circle cx="0" cy="-26" r="13" fill="{ROJO}"/>'
+            f'<path d="M8,-30 q14,2 8,14 q-4,-6 -10,-6z" fill="{AMARILLO}"/>'
+            f'<circle cx="3" cy="-29" r="3" fill="#fff"/><circle cx="4" cy="-29" r="1.5" fill="{TINTA}"/>'
+            f'<path d="M-14,-4 q-16,20 -6,40 q10,-12 18,-28z" fill="{AZUL}"/>'
+            f'<path d="M-4,24 l-8,40 l8,-6 l6,6 l0,-40z" fill="{ROJO}"/>'
+            '</g>')
+
+
+def rana(x, y, s=1.0, color="#1f9bd6"):
+    return (f'<g transform="translate({x},{y}) scale({s})">'
+            f'<ellipse cx="0" cy="0" rx="26" ry="18" fill="{color}"/>'
+            f'<circle cx="-12" cy="-16" r="8" fill="{color}"/><circle cx="12" cy="-16" r="8" fill="{color}"/>'
+            f'<circle cx="-12" cy="-17" r="4" fill="{TINTA}"/><circle cx="12" cy="-17" r="4" fill="{TINTA}"/>'
+            f'<circle cx="-8" cy="4" r="4" fill="{TINTA}"/><circle cx="9" cy="-2" r="3" fill="{TINTA}"/><circle cx="3" cy="8" r="3" fill="{TINTA}"/>'
+            f'<path d="M-24,8 q-12,10 -18,4 M24,8 q12,10 18,4" stroke="{color}" stroke-width="6" fill="none" stroke-linecap="round"/>'
+            '</g>')
+
+
+def selva_escena():
+    b = '<defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7ecd9"/><stop offset="1" stop-color="#f3f7d9"/></linearGradient></defs>'
+    b += '<rect width="816" height="620" fill="url(#cielo)"/>'
+    b += sol(690, 110, 40)
+    b += nube(90, 120, 1.0)
+    b += '<path d="M0,380 C150,330 300,360 420,340 C560,320 700,350 816,330 L816,620 L0,620z" fill="#9fd3a0"/>'
+    for i, (x, h) in enumerate([(60, 330), (200, 280), (640, 340), (770, 300), (520, 250)]):
+        b += arbol_selva(x, 560, h, ["#2e7d4f", "#3f9a5c", "#256b42"][i % 3])
+    b += '<path d="M60,280 C80,380 40,420 70,500" stroke="#4f7a2a" stroke-width="5" fill="none"/>'
+    b += '<path d="M640,250 C620,360 670,420 640,500" stroke="#4f7a2a" stroke-width="5" fill="none"/>'
+    b += palmera(330, 560, 220) + palmera(460, 565, 180, VERDE3)
+    b += f'<rect x="0" y="540" width="816" height="80" fill="{VERDE2}"/>'
+    b += '<path d="M250,620 C330,580 420,590 470,560 C520,540 600,560 640,540 L700,540 C640,570 560,580 520,600 C480,615 420,620 400,620z" fill="#5fb1dd"/>'
+    for (x, y) in [(120, 575), (180, 590), (720, 585), (760, 600)]:
+        b += f'<ellipse cx="{x}" cy="{y}" rx="30" ry="12" fill="#2e7d4f"/>'
+    b += loro(250, 330, 1.2) + rana(150, 590, 0.9)
+    return svg(816, 620, b, 'preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;height:auto"')
+
+
+def capas_selva():
+    capas = [("Emergente", "árboles gigantes que asoman sobre todo (¡hasta 60 m!)", "#8fcf7a", 0),
+             ("Dosel", "un «techo» de copas donde vive la mayoría de los animales", "#3f9a5c", 1),
+             ("Sotobosque", "sombra, humedad, palmas y arbustos jóvenes", "#2e7d4f", 2),
+             ("Suelo", "hojas en descomposición, hongos, insectos… ¡muy poca luz!", "#7a5230", 3)]
+    b = f'<rect width="640" height="300" rx="16" fill="#f3f7ee"/>'
+    b += sol(40, 36, 16)
+    for (t, d, col, i) in capas:
+        y = 20 + i * 68
+        b += f'<rect x="200" y="{y}" width="430" height="60" rx="10" fill="{col}" opacity="0.18"/>'
+        b += txt(215, y + 26, t, 17, col if i < 3 else CAFE, "start", 700)
+        b += txt(215, y + 47, d, 12, TINTA, "start", 400)
+    b += arbol_selva(110, 290, 280, "#3f9a5c")
+    b += f'<line x1="60" y1="50" x2="100" y2="270" stroke="{AMARILLO}" stroke-width="3" stroke-dasharray="6 5" opacity="0.8"/>'
+    b += txt(40, 290, "luz: 100 %", 11, GRIS, "start", 400)
+    return svg(640, 300, b)
+
+
+def cuenca():
+    b = flecha_def("fq", AZUL)
+    b += f'<rect width="560" height="230" rx="16" fill="#f3f7ee"/>'
+    b += '<path d="M20,200 L120,60 L200,140 L280,40 L380,150 L460,70 L540,200z" fill="#9fd3a0" stroke="#3f9a5c" stroke-width="2"/>'
+    b += f'<path d="M120,70 C150,130 200,160 260,190" stroke="{AZUL}" stroke-width="4" fill="none" marker-end="url(#fq)"/>'
+    b += f'<path d="M280,50 C290,110 280,150 270,185" stroke="{AZUL}" stroke-width="4" fill="none" marker-end="url(#fq)"/>'
+    b += f'<path d="M455,80 C420,140 360,170 290,195" stroke="{AZUL}" stroke-width="4" fill="none" marker-end="url(#fq)"/>'
+    b += f'<path d="M150,205 C220,195 330,195 420,210" stroke="{AZUL}" stroke-width="10" fill="none" stroke-linecap="round"/>'
+    b += txt(280, 225, "los arroyos se juntan en un río más grande", 13, AZUL)
+    b += '<rect x="470" y="170" width="26" height="22" fill="#e0702a"/><polygon points="466,172 483,156 500,172" fill="#8a3d12"/>'
+    b += txt(485, 150, "gente", 12, NARANJA)
+    return svg(560, 230, b)
+
+
+def refugio_elevado():
+    b = f'<rect width="520" height="260" rx="16" fill="#f3f7ee"/>'
+    b += f'<rect x="0" y="220" width="520" height="40" fill="#8bb86a"/>'
+    b += f'<path d="M0,240 C100,230 180,250 260,238 C340,228 420,248 520,236" stroke="#5fb1dd" stroke-width="6" fill="none"/>'
+    b += arbol_selva(90, 225, 200) + arbol_selva(430, 225, 200)
+    b += f'<path d="M100,150 Q260,215 420,150" stroke="#e0702a" stroke-width="10" fill="none"/>'
+    b += f'<path d="M100,150 Q260,215 420,150 L420,160 Q260,225 100,160z" fill="#e0702a"/>'
+    b += f'<path d="M140,70 L380,70 L420,160 Q260,225 100,160z" fill="#dff1ff" fill-opacity="0.35" stroke="{GRIS}" stroke-dasharray="4 3"/>'
+    b += f'<path d="M110,70 L410,70 L260,30z" fill="{VERDE2}"/>'
+    b += txt(260, 22, "techo de hojas grandes", 12, VERDE, weight=700)
+    b += txt(470, 110, "mosquitero", 12, GRIS, "middle", 600)
+    b += txt(260, 250, "¡lejos del suelo húmedo, los insectos y las crecidas!", 12, TINTA)
+    return svg(520, 260, b)
+
+
+def punta_goteo():
+    b = f'<rect width="420" height="190" rx="16" fill="#f3f7ee"/>'
+    b += f'<path d="M110,30 C160,60 160,120 110,170 C60,120 60,60 110,30z" fill="{VERDE2}"/>'
+    b += f'<path d="M310,20 C360,50 360,110 330,140 C322,150 316,162 310,185 C304,162 298,150 290,140 C260,110 260,50 310,20z" fill="{VERDE2}"/>'
+    for (x, y) in [(95, 80), (120, 100), (100, 120), (125, 65), (110, 140)]:
+        b += f'<circle cx="{x}" cy="{y}" r="6" fill="{AZUL2}" stroke="{AZUL}"/>'
+    b += f'<path d="M310,183 q5,8 0,10 q-5,-2 0,-10z" fill="{AZUL}"/>'
+    b += txt(110, 22, "redonda: el agua se queda", 12, TINTA)
+    b += txt(310, 12, "punta de goteo: ¡escurre!", 12, TINTA)
+    return svg(420, 195, b)
+
+
+# ═══════════════════ Libro 3: Isla ═══════════════════
+
+def barco(x, y, s=1.0):
+    return (f'<g transform="translate({x},{y}) scale({s})">'
+            f'<path d="M-60,0 L60,0 L42,24 L-42,24z" fill="{CAFE}"/>'
+            f'<line x1="0" y1="0" x2="0" y2="-90" stroke="{TINTA}" stroke-width="4"/>'
+            f'<polygon points="4,-86 4,-8 58,-8" fill="#fff" stroke="{GRIS}"/>'
+            f'<polygon points="-4,-70 -4,-8 -42,-8" fill="{ROJO}"/></g>')
+
+
+def isla_escena():
+    b = '<defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9dcf5"/><stop offset="1" stop-color="#fdf1d6"/></linearGradient></defs>'
+    b += '<rect width="816" height="620" fill="url(#cielo)"/>'
+    b += sol(120, 110, 42)
+    b += nube(560, 90, 1.1) + nube(330, 60, 0.8)
+    b += '<rect x="0" y="360" width="816" height="260" fill="#3aa0d8"/>'
+    b += '<path d="M0,400 q40,-12 80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0" stroke="#bfe6fa" stroke-width="4" fill="none"/>'
+    b += '<path d="M0,470 q40,-12 80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0" stroke="#bfe6fa" stroke-width="4" fill="none"/>'
+    b += barco(700, 380, 0.8)
+    b += '<path d="M60,620 C120,470 300,440 430,450 C560,460 660,540 720,620z" fill="#f2d49b"/>'
+    b += palmera(300, 520, 260) + palmera(420, 510, 200, VERDE3)
+    b += '<g stroke="#7a5230" stroke-width="8" stroke-linecap="round"><line x1="520" y1="590" x2="600" y2="570"/><line x1="530" y1="570" x2="590" y2="595"/></g>'
+    b += fogata(560, 580, 0.55)
+    for x in [180, 215, 250]:
+        b += f'<circle cx="{x}" cy="590" r="12" fill="#7a5230"/><circle cx="{x}" cy="590" r="5" fill="#4a3220"/>'
+    b += f'<g fill="{ROJO}"><ellipse cx="660" cy="605" rx="16" ry="10"/><circle cx="648" cy="594" r="4"/><circle cx="672" cy="594" r="4"/></g>'
+    return svg(816, 620, b, 'preserveAspectRatio="xMidYMax slice" style="display:block;width:100%;height:auto"')
+
+
+def mareas():
+    b = f'<rect width="600" height="240" rx="16" fill="#1f2a44"/>'
+    b += f'<ellipse cx="220" cy="120" rx="120" ry="82" fill="#3aa0d8" opacity="0.85"/>'
+    b += f'<circle cx="220" cy="120" r="70" fill="#4f9a4a"/>'
+    b += f'<path d="M185,95 q20,-20 45,-5 q15,20 -5,35 q-25,10 -40,-10z" fill="#7cbf6a"/>'
+    b += f'<circle cx="520" cy="120" r="30" fill="#e6e6e6"/><circle cx="510" cy="110" r="5" fill="#c9c9c9"/><circle cx="530" cy="130" r="7" fill="#c9c9c9"/>'
+    b += flecha_def("fm", AMARILLO)
+    b += f'<line x1="480" y1="120" x2="360" y2="120" stroke="{AMARILLO}" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#fm)"/>'
+    b += txt(420, 108, "la Luna atrae", 12, AMARILLO)
+    b += txt(220, 222, "Tierra (el agua forma dos «bultos»)", 13, "#cfd8ee")
+    b += txt(520, 175, "Luna", 13, "#cfd8ee")
+    b += txt(350, 70, "marea alta", 13, "#bfe6fa", "start") + txt(95, 70, "marea alta", 13, "#bfe6fa", "end")
+    b += txt(220, 30, "marea baja", 13, "#bfe6fa")
+    return svg(600, 240, b)
+
+
+def corriente_resaca():
+    b = flecha_def("fr", ROJO) + flecha_def("fv", VERDE)
+    b += f'<rect width="560" height="280" rx="16" fill="#3aa0d8"/>'
+    b += f'<rect x="0" y="220" width="560" height="60" fill="#f2d49b"/>'
+    for y in [180, 150]:
+        b += f'<path d="M0,{y} q35,-10 70,0 t70,0 t70,0 M350,{y} q35,-10 70,0 t70,0 t70,0" stroke="#fff" stroke-width="4" fill="none"/>'
+    b += f'<path d="M230,215 C240,160 250,110 245,40" stroke="{ROJO}" stroke-width="16" fill="none" opacity="0.5"/>'
+    b += f'<line x1="245" y1="200" x2="245" y2="50" stroke="{ROJO}" stroke-width="4" marker-end="url(#fr)"/>'
+    b += txt(245, 30, "corriente de resaca", 13, "#fff", weight=700)
+    b += f'<circle cx="245" cy="120" r="9" fill="{NARANJA}"/>'
+    b += f'<line x1="258" y1="120" x2="400" y2="120" stroke="{VERDE}" stroke-width="5" marker-end="url(#fv)"/>'
+    b += f'<line x1="400" y1="125" x2="430" y2="205" stroke="{VERDE}" stroke-width="5" marker-end="url(#fv)"/>'
+    b += txt(330, 108, "1. nada paralelo a la orilla", 12, "#fff", weight=700)
+    b += txt(445, 175, "2. luego", 12, "#fff", "start", 700) + txt(445, 190, "hacia la playa", 12, "#fff", "start", 700)
+    return svg(560, 280, b)
+
+
+def alambique_bol():
+    b = f'<rect width="460" height="250" rx="16" fill="#fff"/>'
+    b += sol(410, 40, 18)
+    b += f'<path d="M60,110 L400,110 L360,220 L100,220z" fill="#dcecf7" stroke="{AZUL}" stroke-width="3"/>'
+    b += f'<path d="M72,140 L388,140 L360,220 L100,220z" fill="#9fd0ee"/>'
+    b += txt(150, 190, "agua salada", 13, AZUL, weight=700)
+    b += f'<rect x="200" y="150" width="60" height="55" rx="6" fill="#fff" stroke="{GRIS}" stroke-width="2"/>'
+    b += f'<rect x="203" y="185" width="54" height="18" fill="#bfe6fa"/>'
+    b += txt(230, 240, "vaso: ¡agua dulce!", 12, VERDE, weight=700)
+    b += f'<path d="M55,110 Q230,170 405,110" fill="none" stroke="{GRIS}" stroke-width="3"/>'
+    b += f'<circle cx="230" cy="136" r="8" fill="{CAFE2}"/>'
+    b += txt(330, 100, "plástico", 12, GRIS) + txt(265, 132, "piedrita", 11, CAFE2, "start")
+    for (x, y) in [(150, 128), (190, 136), (270, 136), (310, 128)]:
+        b += f'<path d="M{x},{y} q4,7 0,9 q-4,-2 0,-9z" fill="{AZUL}"/>'
+    b += f'<path d="M230,146 q4,7 0,9 q-4,-2 0,-9z" fill="{AZUL}"/>'
+    b += flecha_def("fs", NARANJA)
+    b += f'<path d="M120,150 C115,135 125,125 118,112" stroke="{NARANJA}" stroke-width="2.5" fill="none" marker-end="url(#fs)"/>'
+    b += f'<path d="M340,150 C335,135 345,125 338,112" stroke="{NARANJA}" stroke-width="2.5" fill="none" marker-end="url(#fs)"/>'
+    b += txt(70, 60, "1. el sol evapora", 12, NARANJA, "start") + txt(70, 78, "2. el vapor gotea", 12, AZUL, "start")
+    return svg(460, 250, b)
+
+
+def brisa_marina():
+    b = flecha_def("fb2", ROJO) + flecha_def("fb3", AZUL)
+    b += f'<rect width="560" height="240" rx="16" fill="#eaf5fb"/>'
+    b += sol(40, 40, 18)
+    b += f'<rect x="0" y="170" width="280" height="70" fill="#3aa0d8"/><rect x="280" y="160" width="280" height="80" fill="#f2d49b"/>'
+    b += palmera(460, 165, 90)
+    b += f'<path d="M140,160 C140,100 150,70 200,60 L380,60" stroke="{GRIS}" stroke-width="3" fill="none" stroke-dasharray="6 5"/>'
+    b += f'<path d="M400,150 C410,100 400,80 380,65" stroke="{ROJO}" stroke-width="4" fill="none" marker-start="url(#fb2)"/>'
+    b += f'<line x1="150" y1="150" x2="330" y2="150" stroke="{AZUL}" stroke-width="5" marker-end="url(#fb3)"/>'
+    b += txt(430, 115, "aire caliente sube", 12, ROJO, "start", 700)
+    b += txt(120, 140, "brisa fresca del mar →", 13, AZUL, "start", 700)
+    b += txt(140, 225, "el agua se calienta despacio", 12, "#fff")
+    b += txt(420, 225, "la arena se calienta rápido", 12, CAFE)
+    return svg(560, 240, b)
