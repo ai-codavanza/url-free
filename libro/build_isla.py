@@ -295,7 +295,7 @@ L.pagina(f'''
 {seguridad("<p>Enciende el fuego <strong>sobre la arena, lejos de la vegetación seca</strong>, y nunca cerca de nidos. No quemes plásticos ni basura del mar: sueltan humo tóxico. Un adulto enciende y cuida el fuego, y al terminar se apaga con agua (¡la arena sola no siempre basta: las brasas enterradas siguen calientes durante horas y pueden quemar a quien pise ahí!).</p>")}
 <h2 style="margin-top:0.1in">La brisa del mar</h2>
 <div class="fig">{I.brisa_marina()}</div>
-<p class="small">De día, en la costa suele soplar una brisa <strong>desde el mar hacia la tierra</strong>; de noche, al revés. Por eso el humo de tu fogata cambia de dirección y conviene hacer la fogata <strong>a un lado</strong> del refugio, no delante. ¿Por qué pasa? ¡Descúbrelo en el experimento!</p>
+<p class="small">De día sopla una brisa <strong>del mar hacia la tierra</strong>; de noche, al revés. Por eso conviene hacer la fogata <strong>a un lado</strong> del refugio. ¿Por qué pasa? ¡Descúbrelo en el experimento!</p>
 ''', "c-cafe")
 
 L.experimento("La arena contra el agua", "c-cafe", "1 hora", "fácil",
@@ -574,3 +574,4 @@ L.contraportada(I.isla_escena(), "¿Podrías sobrevivir en una isla?",
 L.construir([("Bienvenido a la isla", "Bienvenida y lo que ya sabes", False), ("Las 8 reglas de oro de la costa", "Reglas de oro y las zonas de la isla", False),
              ("Sopa de letras del explorador", "Gran final: pasatiempos y examen", True), ("<h2>Soluciones</h2>", "Soluciones y glosario", True),
              ("CERTIFICADO OFICIAL", "Tu certificado de explorador", True)])
+from mejorar import mejorar; mejorar("libro_isla.html", 3)

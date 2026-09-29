@@ -315,7 +315,7 @@ pagina(f'''
 </ol>
 {ciencia("<p>Las plantas toman agua por sus raíces y la sueltan por agujeritos microscópicos de sus hojas llamados <strong>estomas</strong>: es la <strong>transpiración</strong>. El vapor queda atrapado en la bolsa, choca con el plástico más fresco y se <strong>condensa</strong> en gotas, como en las nubes. ¡Un árbol grande puede soltar cientos de litros de agua al día!</p>")}
 {sabias("<p>Con la misma idea funciona el <strong>alambique solar</strong>: un hoyo cubierto con plástico. El sol evapora la humedad de la tierra, el vapor se condensa bajo el plástico y gotea en un recipiente.</p>")}
-<h4>Mide: ¿cuántas cucharadas de agua juntaste? ¿Qué pasaría en un día nublado?</h4>
+<h4>Mide: ¿cuántas cucharadas de agua juntaste?</h4>
 {lineas(1)}
 ''', "c-azul")
 
@@ -925,3 +925,4 @@ html = f'''<!doctype html>
 </body></html>'''
 open("libro.html", "w", encoding="utf-8").write(html)
 print(f"Páginas: {len(paginas)}")
+from mejorar import mejorar; mejorar("libro.html", 1)

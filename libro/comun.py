@@ -54,10 +54,10 @@ def pasos(items, color=None):
     return f'<ol class="pasos"{st}>' + "".join(f"<li>{p}</li>" for p in items) + "</ol>"
 
 
-def tarjetas(items, cols=3, fondo="#f3f5f2"):
+def tarjetas(items, cols=3, fondo="var(--cc,#f3f5f2)"):
     """items: (emoji, título, texto)."""
     cel = "".join(
-        f'<div style="background:{fondo};border-radius:14px;padding:0.12in 0.14in"><div style="font-size:30px;line-height:1.1">{e}</div>'
+        f'<div style="background:{fondo};border-radius:16px;padding:0.13in 0.15in;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--c,#d5dbd5)"><div style="font-size:32px;line-height:1.1">{e}</div>'
         f'<h4 style="margin:0.04in 0">{t}</h4><p class="small" style="margin:0">{d}</p></div>' for e, t, d in items)
     return f'<div style="display:grid;grid-template-columns:repeat({cols},1fr);gap:0.14in;margin:0.08in 0 0.14in">{cel}</div>'
 

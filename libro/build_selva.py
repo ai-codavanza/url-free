@@ -562,3 +562,4 @@ L.contraportada(I.selva_escena(), "¿Podrías sobrevivir en la selva?",
 L.construir([("Bienvenido a la selva", "Bienvenida y lo que ya sabes", False), ("Las 8 reglas de oro de la selva", "Reglas de oro y los pisos de la selva", False),
              ("Sopa de letras del explorador", "Gran final: pasatiempos y examen", True), ("<h2>Soluciones</h2>", "Soluciones y glosario", True),
              ("CERTIFICADO OFICIAL", "Tu certificado de explorador", True)])
+from mejorar import mejorar; mejorar("libro_selva.html", 2)

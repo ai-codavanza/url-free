@@ -16,7 +16,7 @@ Tres libros de actividades imprimibles para niños de 8 a 12 años (48 páginas 
 - Portada, ficha del explorador, índice, cómo usar el libro
 - Reglas de oro de seguridad, la regla de los 3 y el método S.T.O.P.
 - 7 capítulos: Orientación · Agua · Fuego · Refugio · Cuerdas y nudos · Plantas y animales · Clima y señales
-- 7 experimentos científicos (brújula casera, filtro de agua, transpiración, vela y oxígeno, aislantes, cromatografía de hojas…) y retos
+- 6 experimentos científicos (brújula casera, filtro de agua, transpiración, vela y oxígeno, aislantes, cromatografía de hojas…) y retos
 - Pasatiempos: laberinto, rosa de los vientos, código Morse, sopa de letras, crucigrama, examen final
 - Diario de campo, página para colorear, notas, soluciones, glosario y certificado
 
@@ -27,5 +27,5 @@ python3 build_selva.py      # genera libro_selva.html (Libro 2)
 python3 build_isla.py       # genera libro_isla.html (Libro 3)
 # Luego imprime cada .html a PDF con Chrome/Chromium (tamaño Carta, márgenes: ninguno, gráficos de fondo activados)
 ```
-El texto está en `build*.py`, las piezas comunes de la serie en `comun.py`, las ilustraciones SVG en `ilustraciones.py`, los pasatiempos en `pasatiempos.py` y el diseño en `estilos.css`.
+El diseño v2 (cabeceras, portada con sellos, aperturas de capítulo, certificado) se aplica al final de cada `build*.py` con `mejorar.py`. El texto está en `build*.py`, las piezas comunes de la serie en `comun.py`, las ilustraciones SVG en `ilustraciones.py`, los pasatiempos en `pasatiempos.py` y el diseño en `estilos.css`.
 Fuentes: Fredoka, Nunito y Patrick Hand (Google Fonts, licencia SIL OFL).

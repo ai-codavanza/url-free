@@ -91,7 +91,7 @@ strong { font-weight: 800; }
 
 /* Líneas para escribir */
 .lineas { margin: 0.05in 0 0.1in; }
-.lineas div { border-bottom: 1.5px dashed var(--linea); height: 0.34in; }
+.lineas div { border-bottom: 1.5px dashed var(--linea); height: 0.31in; }
 
 /* Experimento */
 .exp-head { display: flex; align-items: center; gap: 0.15in; margin-bottom: 0.08in; }
@@ -136,6 +136,92 @@ th { background: var(--cc, var(--verde-claro)); color: var(--c, var(--verde)); f
 .opcion { display: inline-block; margin-right: 0.18in; }
 .vf { display: inline-block; font-family: "Fredoka"; font-weight: 600; border: 1.5px solid var(--linea); border-radius: 6px; padding: 0 6px; margin-left: 4px; font-size: 9.5pt; }
 .grid-sopa.mini { width: auto; }
-.grid-sopa.mini td { width: 0.25in; height: 0.25in; font-size: 10pt; }
+.grid-sopa.mini td { width: 0.24in; height: 0.23in; font-size: 10pt; }
 .cruci.mini td { width: 0.27in; min-width: 0.27in; height: 0.27in; }
 .cruci.mini td .s { line-height: 0.27in; font-size: 9.5pt; }
+
+/* ═══════════════ Diseño v2 ═══════════════ */
+
+/* Páginas de contenido: franja superior, círculos suaves de color y cabecera corrida */
+.page[class*="c-"]:not(.opener) {
+  background:
+    radial-gradient(circle at 100% 0, var(--cc) 0 1.15in, transparent 1.16in),
+    radial-gradient(circle at 0 100%, var(--cc) 0 0.75in, transparent 0.76in),
+    #fff;
+}
+.page[class*="c-"]:not(.opener)::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 0.13in; background: var(--c);
+}
+.runhead {
+  position: absolute; top: 0.22in; left: 0.65in; right: 0.65in; display: flex; justify-content: space-between;
+  font-family: "Fredoka"; font-weight: 600; font-size: 8.5pt; letter-spacing: 0.05em; text-transform: uppercase; color: var(--c, var(--gris));
+}
+.runhead span:first-child { opacity: 0.65; }
+.page[class*="c-"] .folio span { background: var(--cc); color: var(--c); border: 1.5px solid var(--c); }
+
+/* Títulos con acento */
+.page[class*="c-"]:not(.opener) h2::after {
+  content: ""; display: block; width: 0.75in; height: 5px; border-radius: 5px; background: var(--c); margin-top: 0.04in;
+}
+.exp-head h2::after { display: none !important; }
+h2 { font-size: 21.5pt; }
+
+/* Tarjetas y cajas */
+.box { border-radius: 16px; }
+
+/* Experimentos como «ficha de laboratorio» */
+.exp-head { background: var(--cc, var(--verde-claro)); border-radius: 18px; padding: 0.07in 0.16in; margin-bottom: 0.08in; }
+.exp-badge { width: 0.72in; height: 0.72in; border: 4px solid #fff; box-shadow: 0 0 0 2px var(--c, var(--azul)); }
+.materiales { background: #fff; border: 2px dashed var(--c, var(--linea)); }
+.materiales h4 { color: var(--c, var(--tinta)); }
+.meta span { background: #fff; border: 1.5px solid var(--linea); }
+
+/* Aperturas de capítulo */
+.opener { background: #fff; }
+.opener .banda {
+  height: 4.7in; background-color: var(--c);
+  background-image: radial-gradient(rgba(255,255,255,.16) 2.2px, transparent 2.8px), radial-gradient(rgba(0,0,0,.08) 2px, transparent 2.6px);
+  background-size: 26px 26px, 26px 26px; background-position: 0 0, 13px 13px;
+}
+.opener .banda::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 0.55in; z-index: 3;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 V40 H0z' fill='white'/%3E%3C/svg%3E") repeat-x;
+  background-size: 2.6in 100%;
+}
+.opener .bignum {
+  position: absolute; right: 0.35in; top: 0.05in; font-family: "Fredoka"; font-weight: 700; font-size: 250pt; line-height: 1;
+  color: rgba(255,255,255,.14); z-index: 0;
+}
+.opener .num { position: relative; display: inline-block; background: rgba(255,255,255,.22); padding: 3px 16px; border-radius: 20px; font-size: 12pt; }
+.opener h1 { position: relative; font-size: 46pt; text-shadow: 0 4px 0 rgba(0,0,0,.14); z-index: 1; }
+.opener .sub { position: relative; z-index: 1; font-size: 14.5pt; }
+.opener .ilus { z-index: 2; bottom: 0.5in; right: 0.55in; filter: drop-shadow(0 6px 0 rgba(0,0,0,.14)); }
+.opener .cuerpo { padding: 0.3in 0.7in 0; }
+.opener .cuerpo h3 { color: var(--c); }
+.opener .aprenderas { list-style: none; padding-left: 0; }
+.opener .aprenderas li { padding-left: 0.32in; position: relative; }
+.opener .aprenderas li::before { content: "✔"; position: absolute; left: 0; top: 0; width: 0.22in; height: 0.22in; border-radius: 50%; background: var(--c); color: #fff; font-size: 9pt; text-align: center; line-height: 0.22in; }
+.opener-extra { position: absolute; left: 0.7in; right: 0.7in; bottom: 0.75in; display: grid; grid-template-columns: 1.15fr 1fr; gap: 0.2in; }
+.opener-extra > div { border-radius: 16px; padding: 0.11in 0.17in; background: var(--cc); }
+.opener-extra h4 { color: var(--c); margin-bottom: 0.03in; }
+.opener-extra .lineas div { height: 0.3in; border-bottom: 1.5px dashed var(--c); opacity: .5; }
+.opener-extra .check { margin: 0; }
+.opener-extra .check li { margin-bottom: 0.03in; font-size: 11pt; }
+.opener-extra .check li::before { border-color: var(--c); }
+
+/* Portada */
+.cover .marco-portada { position: absolute; inset: 0.22in; border: 6px solid #fff; border-radius: 28px; z-index: 5; pointer-events: none; }
+.cover h1 { -webkit-text-stroke: 12px #fff; paint-order: stroke fill; letter-spacing: -0.01em; }
+.cover .sello {
+  position: absolute; left: 0.6in; bottom: 0.75in; width: 1.45in; height: 1.45in; border-radius: 50%; z-index: 6;
+  background: #e0702a; color: #fff; border: 5px solid #fff; box-shadow: 0 0 0 3px #e0702a; transform: rotate(-10deg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: "Fredoka"; line-height: 1;
+}
+.cover .sello b { font-size: 34pt; font-weight: 700; }
+.cover .sello span { font-size: 10pt; font-weight: 600; letter-spacing: .03em; }
+.cover .sello2 {
+  position: absolute; right: 0.6in; bottom: 0.75in; z-index: 6; background: #fff; color: #26302a; border-radius: 16px; padding: 8px 14px;
+  font-family: "Fredoka"; font-weight: 600; font-size: 11pt; text-align: center; transform: rotate(4deg); box-shadow: 0 0 0 3px #f4c542;
+}
+.cert { background: radial-gradient(circle at 50% 0, #fff6d6, #fff 60%); }
+.cert .estrellas { font-size: 22pt; letter-spacing: 0.15in; margin-top: 0.06in; }
